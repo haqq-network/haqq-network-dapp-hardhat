@@ -14,7 +14,7 @@ const {chains, publicClient, webSocketPublicClient} = configureChains(
 );
 
 const {connectors} = getDefaultWallets({
-    appName: 'RainbowKit App',
+    appName: 'Haqq Network dApp',
     projectId: 'YOUR_PROJECT_ID',
     chains,
 });

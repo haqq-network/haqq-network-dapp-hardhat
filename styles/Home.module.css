@@ -53,7 +53,7 @@
 .description {
   margin: 0 0 2rem;
   line-height: 1.5;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .grid {
@@ -83,6 +83,7 @@
   border-color: #0d76fc;
 }
 
+
 .card h2 {
   margin: 0 0 1rem 0;
   font-size: 1.2rem;
@@ -99,4 +100,22 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+.button {
+  background-color: #0d76fc;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.input {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 1px solid #eaeaea;
+  font-size: 1.2rem;
+  margin-right: 1rem;
 }
