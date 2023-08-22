@@ -15,7 +15,7 @@ const {chains, publicClient, webSocketPublicClient} = configureChains(
 
 const {connectors} = getDefaultWallets({
     appName: 'Haqq Network dApp',
-    projectId: 'YOUR_PROJECT_ID',
+    projectId: '500ce7676f1232ad42e281da77108317', // TODO: Replace with your project ID
     chains,
 });
 

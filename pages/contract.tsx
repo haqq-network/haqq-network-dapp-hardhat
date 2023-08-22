@@ -19,6 +19,7 @@ const Contract: NextPage = () => {
     const [debouncedZakatRecipient] = useDebounce(zakatRecipient, 500)
 
 
+    // Read the percentage of Zakat that is distributed to charity
     const {data: percentage} = useContractRead(
         {
             // @ts-ignore
@@ -28,6 +29,7 @@ const Contract: NextPage = () => {
         }
     );
 
+    // Read the charity address
     const {data: currentZakatRecipient} = useContractRead(
         {
             // @ts-ignore
@@ -39,6 +41,7 @@ const Contract: NextPage = () => {
         }
     );
 
+    // Read the token balance
     const {data: tokenBalance} = useContractRead(
         {
             // @ts-ignore
@@ -50,6 +53,7 @@ const Contract: NextPage = () => {
         }
     );
 
+    // Read the distributed Zakat
     const {data: distributedZakat} = useContractRead(
         {
             // @ts-ignore
@@ -119,7 +123,7 @@ const Contract: NextPage = () => {
             <p className={styles.description}>Charity Address: {!currentZakatRecipient ? 'Loading...' : currentZakatRecipient}</p>
             <p className={styles.description}>Zakat percentage: {!percentage ? 'Loading...' : formatPercentageString(percentage.toString())}%</p>
             <p className={styles.description}>Token balance: {!tokenBalance ? '0' : formatEther(tokenBalance as bigint, "wei")} ZAKAT</p>
-            <p className={styles.description}>Distributed Zakat: {!distributedZakat ? 'Loading...' : formatEther(distributedZakat as bigint, "wei")} ZAKAT</p>
+            <p className={styles.description}>Distributed Zakat: {!distributedZakat ? '0' : formatEther(distributedZakat as bigint, "wei")} ZAKAT</p>
             <h3>Transfer</h3>
             <input className={styles.input} placeholder="Recipient" onChange={(e) => {
                 // @ts-ignore

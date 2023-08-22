@@ -19,6 +19,9 @@ contract ZakatToken is ERC20, ERC20Permit, Ownable {
     address public defaultZakatAddress;
     mapping(address => address) private userZakatRecipients;
 
+    // zakat distribution per user
+    mapping(address => uint) private zakatDistributionPerUser;
+
     /// @dev Initializes the contract with the provided token name, symbol, and default zakat address.
     /// @param name The name of the token.
     /// @param symbol The symbol of the token.
@@ -46,6 +49,8 @@ contract ZakatToken is ERC20, ERC20Permit, Ownable {
         super.transfer(zakatRecipient, zakatAmount);
         distributedZakat += zakatAmount;
 
+        // TODO: track zakat distribution per user
+
         return super.transfer(recipient, transferAmount);
     }
 
@@ -61,6 +66,8 @@ contract ZakatToken is ERC20, ERC20Permit, Ownable {
         address zakatRecipient = getUserZakatRecipient(sender);
         super.transferFrom(sender, zakatRecipient, zakatAmount);
         distributedZakat += zakatAmount;
+
+        // TODO: track zakat distribution per user
 
         return super.transferFrom(sender, recipient, transferAmount);
     }
@@ -101,5 +108,4 @@ contract ZakatToken is ERC20, ERC20Permit, Ownable {
         zakatPercentage = _newPercentage;
     }
 
-    // TODO: track zakat distribution per user
 }
